@@ -26,3 +26,24 @@ body {
 .icon {
 	font-size: 4rem;
 }
+
+/* v2: add layout - grid for card container and flex basics for cards */
+.emojis {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 1rem;
+	max-width: 1100px;
+	margin: 2rem auto;
+	padding: 0 1rem;
+}
+
+.emoji {
+	display: flex;
+	flex-direction: column;
+	min-height: 220px;
+}
+
+.emoji a {
+	margin-top: auto; /* ensures the button/link sits at the bottom of the card */
+}
+im going 
