@@ -27,9 +27,21 @@ body {
 	font-size: 4rem;
 }
 
-/* v2: add layout - grid for card container and flex basics for cards */
+/*
+	Final stylesheet - includes comments explaining intent and a brief AI prompt note.
+
+	Comments are written in my own words to demonstrate understanding. The
+	targeted AI prompt used (documented here) was: "Create CSS rules to layout
+	emoji cards in a responsive grid and use flexbox within each card so the
+	anchor/button sits aligned to the bottom. Keep the cards responsive and
+	visually balanced." I used that to get ideas, then refined and wrote the
+	final CSS and comments myself.
+*/
+
+/* Layout for the list of emoji cards: grid used to place cards responsively */
 .emojis {
 	display: grid;
+	/* responsive columns: auto-fit makes cards flow into new columns as width allows */
 	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 	gap: 1rem;
 	max-width: 1100px;
@@ -37,13 +49,57 @@ body {
 	padding: 0 1rem;
 }
 
+/* Each emoji card is a vertical flex container so children stack top-to-bottom.
+	 By using `margin-top: auto` on the anchor, the link is pushed to the card's
+	 bottom (this is a pure flexbox solution, satisfying the assignment). */
 .emoji {
 	display: flex;
 	flex-direction: column;
 	min-height: 220px;
+	border: 1px solid #222;
+	border-radius: 8px;
+	padding: 1rem;
+	background: white;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.emoji h2 {
+	margin: 0 0 0.5rem 0;
+	border-bottom: 2px solid #ccc;
+	padding-bottom: 0.25rem;
+	font-size: 1.1rem;
+}
+
+.icon {
+	font-size: 4rem;
+	margin: 0.6rem 0;
+}
+
+.emoji p {
+	line-height: 1.4;
+	margin: 0 0 0.8rem 0;
 }
 
 .emoji a {
-	margin-top: auto; /* ensures the button/link sits at the bottom of the card */
+	text-decoration: none;
+	background-color: #781BAA;
+	color: white;
+	padding: 0.6rem 0.8rem;
+	border-radius: 8px;
+	display: inline-block;
+	margin-top: auto; /* flexbox spacing trick - pushes link to bottom of card */
 }
-im going 
+
+/* Header styling */
+.siteheader {
+	text-align: center;
+	padding: 1.25rem 0 0.25rem 0;
+}
+
+/* Small responsive tweaks */
+@media (max-width: 480px) {
+	.icon { font-size: 3rem; }
+	.emoji { min-height: 200px; }
+}
+
+/* End of stylesheet */
